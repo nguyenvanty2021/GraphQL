@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
 import {
   POST_MESSAGE,
   GET_ALL_QUOTES,
@@ -88,6 +88,7 @@ const Chat = () => {
   //     proxy.writeQuery({query: GET_ALL_POST, data})
   //   }
   // })
+  // update
   // const [updateUser] = useMutation(UPDATE_USER, {
   //   update() {
 
@@ -95,6 +96,17 @@ const Chat = () => {
   //   variables: {
   //     userId,
   //     obj: obj
+  //   }
+  // })
+  // search -> thường sử dụng useLazyQuery cho chức năng search
+  // const [nameQuery, setNameQuery] = useState("");
+  // const [getProduct, {data, loading, error}] = useLazyQuery(GET_PRODUCT_BY_NAME, {
+  //   variables: {
+  //     "filters": {
+  //       "name": {
+  //         "startsWith": nameQuery
+  //       }
+  //     }
   //   }
   // })
   //========================
@@ -132,6 +144,8 @@ const Chat = () => {
       //addUser()
       //getById()
       //updateUser()
+      // vì đây là chức năng search product theo name nên bỏ vào onChange Input (để tạm ở onClick :))))
+      //getProduct()
     }
     stateSet({
       ...state,
